@@ -25,5 +25,12 @@ namespace ParkFinder.Controllers
             return _db.Parks.ToList();
         }
 
+        [HttpPost]
+        public void Post([FromBody] Park park)
+        {
+            _db.Parks.Add(park);
+            _db.SaveChanges();
+        }
+
     }
 }
