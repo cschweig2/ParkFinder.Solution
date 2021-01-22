@@ -133,13 +133,14 @@ https://localhost:5000/api/2.0/parks/1
 ## Parks
 Access national and state park listings across the United States.
 
-### Http Request
+### HTTP Request
 ```
 GET /api/2.0/parks
 POST /api/2.0/parks
 GET /api/2.0/parks/{id}
 PUT /api/2.0/parks/{id}
 DELETE /api/2.0/parks/{id}
+GET /api/2.0/parks/random
 ```
 
 ### Path Parameters
