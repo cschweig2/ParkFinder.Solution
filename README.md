@@ -98,16 +98,16 @@ Base URL: `https://localhost:5000`
 ### HTTP Request Structure
 
 ```
-GET /api/{component}
-POST /api/{component}
-GET /api/{component}/{id}
-PUT /api/{component}/{id}
-DELETE /api/{component}/{id}
+GET /api/2.0/{component}
+POST /api/2.0/{component}
+GET /api/2.0/{component}/{id}
+PUT /api/2.0/{component}/{id}
+DELETE /api/2.0/{component}/{id}
 ```
 
 #### **Example Query**
 ```
-https://localhost:5000/api/parks/1
+https://localhost:5000/api/2.0/parks/1
 ```
 ### **Sample JSON Response**
 ```
@@ -128,11 +128,11 @@ Access national and state park listings across the United States.
 
 ### Http Request
 ```
-GET /api/parks
-POST /api/parks
-GET /api/parks/{id}
-PUT /api/parks/{id}
-DELETE /api/parks/{id}
+GET /api/2.0/parks
+POST /api/2.0/parks
+GET /api/2.0/parks/{id}
+PUT /api/2.0/parks/{id}
+DELETE /api/2.0/parks/{id}
 ```
 
 ### Path Parameters
@@ -183,7 +183,7 @@ DELETE /api/parks/{id}
 
 ### Example Query
 ```
-https://localhost:5000/api/parks/?city=batsto&status=open
+https://localhost:5000/api/2.0/parks/?city=batsto&status=open
 ```
 ### Example JSON Response
 ```
