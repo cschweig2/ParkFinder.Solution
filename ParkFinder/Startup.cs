@@ -26,6 +26,11 @@ namespace ParkFinder
         {
             services.AddDbContext<ParkFinderContext>(opt =>
                 opt.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddApiVersioning(o => {
+                o.ReportApiVersions = true;
+                o.AssumeDefaultVersionWhenUnspecified = true;
+                o.DefaultApiVersion = new ApiVersion(1, 0);
+                });
             services.AddDbContext<ParkFinderContext>(opt =>
                 opt.UseInMemoryDatabase("Parks")); //for swagger
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
