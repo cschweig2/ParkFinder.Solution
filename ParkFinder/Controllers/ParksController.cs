@@ -38,5 +38,13 @@ namespace ParkFinder.Controllers
             return _db.Parks.FirstOrDefault(entry => entry.ParkId == id);
         }
 
+        [HttpPut("{id}")]
+        public void Put(int id, [FromBody] Park park)
+        {
+            park.ParkId = id;
+            _db.Entry(park).State = EntityState.Modified;
+            _db.SaveChanges();
+        }
+
     }
 }
