@@ -164,7 +164,7 @@ GET /api/2.0/parks/random
     <td>string</td>
     <td>none</td>
     <td>false</td>
-    <td>Returns park by name</td>
+    <td>Returns park by name (Denali, New Jersey Pinelands, Crater Lake, etc.)</td>
   </tr>
   <tr>
     <td>city</td>
@@ -178,14 +178,14 @@ GET /api/2.0/parks/random
     <td>string</td>
     <td>none</td>
     <td>false</td>
-    <td>Returns park by the state it is primarily located in. States are in 2-letter format (OR, NJ, PA, etc.)</td>
+    <td>Returns park by the state it is primarily located in. States are in 2-letter format (OR, NJ, AK, etc.)</td>
   </tr>
   <tr>
     <td>status</td>
     <td>string</td>
     <td>none</td>
     <td>false</td>
-    <td>Returns parks whose status are set to "Open" or "Close". Please see the website listed for the park to see further details.</td>
+    <td>Returns parks whose status are set to "Open" or "Close". Please see the website listed under the park to see further details on additional park regulations.</td>
   </tr>
 </table>
 
