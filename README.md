@@ -85,7 +85,7 @@ To open the project on your local machine, you will need to download and install
 
 ## 📄API Documentation
 
-Explore our API endpoints with Swagger Documentation:
+Explore the API endpoints with Swagger Documentation:
 1. Enter `dotnet run` in the command line to launch the server.
 2. Use a browser to navigate to `http://localhost:5000/swagger/`.
 
