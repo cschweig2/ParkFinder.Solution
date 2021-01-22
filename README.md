@@ -88,9 +88,6 @@ To open the project on your local machine, you will need to download and install
 Explore our API endpoints with Swagger Documentation:
 After entering `dotnet run` in the command line to launch the server, use a browser to navigate to `http://localhost:5000/swagger/`.
 
-### **Using Swagger Documentation**
-To explore the CoffeeTracker API with NSwag, launch the project using `dotnet run` with the Terminal or Powershell, and input the following URL into your browser: `http://localhost:5000/swagger`
-
 -------------------------------------------------------
 
 ## Endpoints
@@ -147,14 +144,14 @@ DELETE /api/parks/{id}
     <th>Description</th>
   </tr>
   <tr>
-    <td>park type</td>
+    <td>parkType</td>
     <td>string</td>
     <td>none</td>
     <td>false</td>
     <td>Returns parks by type (National Park, National Historic Site, etc.)</td>
   </tr>
   <tr>
-    <td>park name</td>
+    <td>parkName</td>
     <td>string</td>
     <td>none</td>
     <td>false</td>
