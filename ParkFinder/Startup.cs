@@ -36,7 +36,7 @@ namespace ParkFinder
                 {
                     Version = "v1",
                     Title = "Park Finder API",
-                    Description = "An ASP.NET Core Web API to find national and state parks in your area",
+                    Description = "An ASP.NET Core Web API to find national and state parks in your area. Follow the website link below to view the GitHub repo for this API.",
                     TermsOfService = new Uri("https://example.com/terms"),
                     Contact = new OpenApiContact
                     {
