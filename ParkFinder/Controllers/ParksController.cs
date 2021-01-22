@@ -32,5 +32,11 @@ namespace ParkFinder.Controllers
             _db.SaveChanges();
         }
 
+        [HttpGet("{id}")]
+        public ActionResult<Park> Get(int id)
+        {
+            return _db.Parks.FirstOrDefault(entry => entry.ParkId == id);
+        }
+
     }
 }
