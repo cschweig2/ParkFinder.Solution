@@ -6,6 +6,8 @@ namespace Parks.Models
     {
         public int ParkId { get; set; }
         [Required]
+        public string ParkType { get; set; }
+        [Required]
         public string ParkName { get; set; }
         [Required]
         public string City { get; set; }
