@@ -9,7 +9,7 @@
 
 ### **Description**
 
-An API designed to list state and national parks across the United States.
+An API designed to list state and national ParkFinder across the United States.
 
 ### **Technologies Used**
 
@@ -63,25 +63,25 @@ To open the project on your local machine, you will need to download and install
 
 ### **Clone**
 1. Follow above steps to install .NET Core.
-2. Open web browser and go to https://github.com/cschweig2/Parks.Solution.
+2. Open web browser and go to https://github.com/cschweig2/ParkFinder.Solution.
 3. After clicking the green "code" button, you can copy the URL for the repository.
 4. Open a terminal window, such as Command Prompt or Git Bash.<br>
-  4a. Type in this command: `git clone` , followed by the URL you just copied. The full command should look like this: `git clone https://github.com/cschweig2/Parks.Solution` .
+  4a. Type in this command: `git clone` , followed by the URL you just copied. The full command should look like this: `git clone https://github.com/cschweig2/ParkFinder.Solution` .
 5. View the code on your favorite text editor, such as Visual Studio Code.
 
 ### **Download**
-1. Click [here](https://github.com/cschweig2/Parks.Solution) to view project repository.
+1. Click [here](https://github.com/cschweig2/ParkFinder.Solution) to view project repository.
 2. Click "Clone or download" to find the "Download ZIP" option.
 3. Click "Download ZIP" and extract files.
 4. Open the project in a text editor by clicking on any file in the project folder.
 
 ### **Import Database with Entity Framework Core/Command Line**
-1. Navigate to the `Parks` project folder and enter `dotnet ef database update` in the command line, which will create the database in MySQL Workbench using the migrations from the `Migrations` folder.
+1. Navigate to the `ParkFinder` project folder and enter `dotnet ef database update` in the command line, which will create the database in MySQL Workbench using the migrations from the `Migrations` folder.
 
 ### **Final Steps**
 
-1. Navigate to the `Parks` folder and enter `dotnet restore` in the command line to install packages.
-2. After packages are installed in each of these folders, navigate to the `Parks` project folder and enter `dotnet run`  in the command line to both run and build the program.
+1. Navigate to the `ParkFinder` folder and enter `dotnet restore` in the command line to install packages.
+2. After packages are installed in each of these folders, navigate to the `ParkFinder` project folder and enter `dotnet run`  in the command line to both run and build the program.
 
 ## 📄API Documentation
 
@@ -91,14 +91,114 @@ After entering `dotnet run` in the command line to launch the server, use a brow
 ### **Using Swagger Documentation**
 To explore the CoffeeTracker API with NSwag, launch the project using `dotnet run` with the Terminal or Powershell, and input the following URL into your browser: `http://localhost:5000/swagger`
 
+-------------------------------------------------------
+
+## Endpoints
+
+Base URL: `https://localhost:5000`
+
+### HTTP Request Structure
+
+```
+GET /api/{component}
+POST /api/{component}
+GET /api/{component}/{id}
+PUT /api/{component}/{id}
+DELETE /api/{component}/{id}
+```
+
 #### **Example Query**
 ```
-https://localhost:5000/api/
+https://localhost:5000/api/parks/1
 ```
 ### **Sample JSON Response**
 ```
-*enter response*
+{
+    "parkId": 1,
+    "parkType": "National Park",
+    "parkName": "Crater Lake",
+    "city": "Crater Lake",
+    "state": "OR",
+    "status": "Open",
+    "website": "https://www.nps.gov/crla/index.htm"
+}
 ```
+
+----------------------------
+## Parks
+Access national and state park listings across the United States.
+
+### Http Request
+```
+GET /api/parks
+POST /api/parks
+GET /api/parks/{id}
+PUT /api/parks/{id}
+DELETE /api/parks/{id}
+```
+
+### Path Parameters
+<table>
+  <tr>
+    <th>Parameter</th>
+    <th>Type</th>
+    <th>Default</th>
+    <th>Required</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>park type</td>
+    <td>string</td>
+    <td>none</td>
+    <td>false</td>
+    <td>Returns parks by type (National Park, National Historic Site, etc.)</td>
+  </tr>
+  <tr>
+    <td>park name</td>
+    <td>string</td>
+    <td>none</td>
+    <td>false</td>
+    <td>Returns park by name</td>
+  </tr>
+  <tr>
+    <td>city</td>
+    <td>string</td>
+    <td>none</td>
+    <td>false</td>
+    <td>Returns park by the city it is primarily located in. Note that some parks span multiple cities.</td>
+  </tr>
+  <tr>
+    <td>state</td>
+    <td>string</td>
+    <td>none</td>
+    <td>false</td>
+    <td>Returns park by the state it is primarily located in. States are in 2-letter format (OR, NJ, PA, etc.)</td>
+  </tr>
+    <td>status</td>
+    <td>string</td>
+    <td>none</td>
+    <td>false</td>
+    <td>Returns parks whose status are set to "Open" or "Close". Please see the website listed for the park to see further details.</td>
+  </tr>
+</table>
+
+### Example Query
+```
+https://localhost:5000/api/parks/?city=batsto&status=open
+```
+### Example JSON Response
+```
+{
+    "parkId": 2,
+    "parkType": "National Reserve",
+    "parkName": "New Jersey Pinelands",
+    "city": "Batsto",
+    "state": "NJ",
+    "status": "Open",
+    "website": "https://www.nps.gov/pine/index.htm"
+}
+```
+-------------------------------------------
 ## 📧Support and contact details
 
 If you run into any issues, you can contact the creator at chelraebecker@gmail.com, or make contributions to the code on GitHub via forking and creating a new branch.
