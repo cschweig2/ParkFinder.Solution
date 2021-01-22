@@ -20,9 +20,9 @@ namespace Parks
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ParksContext>(opt =>
+            services.AddDbContext<ParkContext>(opt =>
                 opt.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDbContext<TravelAPIContext>(opt =>
+            services.AddDbContext<ParkContext>(opt =>
                 opt.UseInMemoryDatabase("Parks")); //for swagger
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
