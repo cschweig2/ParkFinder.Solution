@@ -57,17 +57,17 @@ To open the project on your local machine, you will need to download and install
 
 ### **Install Postman (optional)**
 
-1. Follow [this](https://www.postman.com/downloads/) link to view the Postman website to download and install.
+1. Follow [this](https://www.postman.com/downloads/) link to view the Postman website and download/install.
 
 ## 💻View Locally/Project Setup
 
 ### **Clone**
-1. Follow above steps to install .NET Core.
+1. Follow above steps to install necessary software.
 2. Open web browser and go to https://github.com/cschweig2/ParkFinder.Solution.
 3. After clicking the green "code" button, you can copy the URL for the repository.
-4. Open a terminal window, such as Command Prompt or Git Bash.<br>
+4. Open a terminal window, such as Command Prompt or Git Bash, and navigate to the folder you wish to keep this project in.<br>
   4a. Type in this command: `git clone` , followed by the URL you just copied. The full command should look like this: `git clone https://github.com/cschweig2/ParkFinder.Solution` .
-5. View the code on your favorite text editor, such as Visual Studio Code.
+5. View the code on your favorite text editor.
 
 ### **Download**
 1. Click [here](https://github.com/cschweig2/ParkFinder.Solution) to view project repository.
@@ -81,12 +81,13 @@ To open the project on your local machine, you will need to download and install
 ### **Final Steps**
 
 1. Navigate to the `ParkFinder` folder and enter `dotnet restore` in the command line to install packages.
-2. After packages are installed in each of these folders, navigate to the `ParkFinder` project folder and enter `dotnet run`  in the command line to both run and build the program.
+2. After packages are installed in each of these folders, navigate to the `ParkFinder` project folder and enter `dotnet build` in the command line to build the program.
 
 ## 📄API Documentation
 
 Explore our API endpoints with Swagger Documentation:
-After entering `dotnet run` in the command line to launch the server, use a browser to navigate to `http://localhost:5000/swagger/`.
+1. Enter `dotnet run` in the command line to launch the server.
+2. Use a browser to navigate to `http://localhost:5000/swagger/`.
 
 -------------------------------------------------------
 
