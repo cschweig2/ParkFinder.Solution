@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace Parks.Models
 {
     public class Park
