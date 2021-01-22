@@ -19,11 +19,24 @@ namespace ParkFinder
             Configuration = configuration;
         }
 
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy(MyAllowSpecificOrigins,
+                builder =>
+                {
+                    builder.WithOrigins("https://localhost:5000",
+                                        "https://localhost:5001")
+                                        .AllowAnyHeader()
+                                        .AllowAnyMethod();
+                });
+            });
             services.AddDbContext<ParkFinderContext>(opt =>
                 opt.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
             services.AddApiVersioning(o => {
@@ -77,6 +90,8 @@ namespace ParkFinder
             {
                 c.SwaggerEndpoint("/swagger/v2/swagger.json", "My API V2");
             });
+
+            app.UseCors(MyAllowSpecificOrigins);
 
             // app.UseHttpsRedirection();
             app.UseMvc();
