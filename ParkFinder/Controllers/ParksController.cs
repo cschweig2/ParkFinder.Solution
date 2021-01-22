@@ -20,9 +20,30 @@ namespace ParkFinder.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<Park>> Get()
+        public ActionResult<IEnumerable<Park>> Get(string parkType, string parkName, string city, string state, string status)
         {
-            return _db.Parks.ToList();
+            var query = _db.Parks.AsQueryable();
+            if (parkType != null)
+            {
+                query = query.Where(entry => entry.ParkType == parkType);
+            }
+            if (parkName != null)
+            {
+                query = query.Where(entry => entry.ParkName == parkName);
+            }
+            if (city != null)
+            {
+                query = query.Where(entry => entry.City == city);
+            }
+            if (state != null)
+            {
+                query = query.Where(entry => entry.State == state);
+            }
+            if (status != null)
+            {
+                query = query.Where(entry => entry.Status == status);
+            }
+            return query.ToList();
         }
 
         [HttpPost]
