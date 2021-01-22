@@ -90,7 +90,7 @@ After entering `dotnet run` in the command line to launch the server, use a brow
 
 -------------------------------------------------------
 
-## Endpoints
+## 🚀Endpoints
 
 Base URL: `https://localhost:5000`
 
@@ -171,6 +171,7 @@ DELETE /api/parks/{id}
     <td>false</td>
     <td>Returns park by the state it is primarily located in. States are in 2-letter format (OR, NJ, PA, etc.)</td>
   </tr>
+  <tr>
     <td>status</td>
     <td>string</td>
     <td>none</td>
