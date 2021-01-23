@@ -75,7 +75,6 @@ namespace ParkFinder.Controllers
             _db.Parks.Remove(parkToDelete);
             _db.SaveChanges();
         }
-
     }
 
     [ApiVersion("2.0")]
@@ -153,6 +152,5 @@ namespace ParkFinder.Controllers
             var random = rand.Next(1, _db.Parks.Count());
             return _db.Parks.FirstOrDefault(entry => entry.ParkId == random);
         }
-
     }
 }
