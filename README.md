@@ -1,4 +1,4 @@
-# Park Finder
+# Park Finder API
 
 #### Independent Code Review
 #### Created 01.22.2021 | Last Updated 01.22.2021
