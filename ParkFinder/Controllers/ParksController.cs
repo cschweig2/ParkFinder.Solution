@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ParkFinder.Models;
@@ -116,6 +117,7 @@ namespace ParkFinder.Controllers
             return query.ToList();
         }
 
+        [Authorize]
         [HttpPost]
         public void Post([FromBody] Park park)
         {
@@ -129,6 +131,7 @@ namespace ParkFinder.Controllers
             return _db.Parks.FirstOrDefault(entry => entry.ParkId == id);
         }
 
+        [Authorize]
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] Park park)
         {
@@ -137,6 +140,7 @@ namespace ParkFinder.Controllers
             _db.SaveChanges();
         }
 
+        [Authorize]
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
