@@ -1,25 +1,36 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using ParkFinder.Services;
-using ParkFinder.Entities;
+using ParkFinder.Models;
 
 namespace ParkFinder.Controllers
 {
     [Authorize]
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/{v:ApiVersion}/users")]
     public class UsersController : ControllerBase
     {
         private IUserService _userService;
+        private ParkFinderContext _db;
 
-        public UsersController(IUserService userService)
+        public UsersController(IUserService userService, ParkFinderContext db)
         {
             _userService = userService;
+            _db = db;
+        }
+
+        [AllowAnonymous]
+        [HttpPost]
+        public IActionResult Post([FromBody]User user)
+        {
+            _db.Users.Add(user);
+            _db.SaveChanges();
+            return Ok(user);
         }
 
         [AllowAnonymous]
         [HttpPost("authenticate")]
-        public IActionResult Authenticate([FromBody] User userParam)
+        public IActionResult Authenticate([FromBody]User userParam)
         {
             var user = _userService.Authenticate(userParam.Username, userParam.Password);
             if (user == null)
@@ -29,11 +40,11 @@ namespace ParkFinder.Controllers
             return Ok(user);
         }
 
-        [HttpGet]
-        public IActionResult GetAll()
-        {
-            var users = _userService.GetAll();
-            return Ok(users);
-        }
+        // [HttpGet]
+        // public IActionResult GetAll()
+        // {
+        //     var users = _db.Users.GetAll();
+        //     return Ok(users);
+        // }
     }
 }
