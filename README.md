@@ -96,6 +96,17 @@ Explore the API endpoints with Swagger Documentation:
 
 This API is CORS enabled. CORS is a W3C standard that allows a server to relax the same-origin policy. This is **not** a security feature, CORS relaxes security. For more information, click [here](https://docs.microsoft.com/en-us/aspnet/core/security/cors?view=aspnetcore-2.2#how-cors).
 
+### Using JSON Web Token
+In order to use the POST, PUT and DELETE functionality/routes in this API, you will need to authenticate yourself through Postman:
+1. In Postman, create a POST request to the URL `http://localhost:5000/api/2/users/authenticate` with the following code entered as raw JSON in the Body tab:
+```
+{
+    "username": "admin",
+    "password": "test"
+}
+```
+2. The token will be generated in the response. Copy and paste it as the Token parameter in the Authorization tab. You are now authorized!
+
 -------------------------------------------------------
 
 ## 🚀Endpoints
