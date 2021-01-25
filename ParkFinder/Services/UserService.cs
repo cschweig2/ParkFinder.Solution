@@ -6,7 +6,7 @@ using System.Security.Claims;
 using System.Text;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using ParkFinder.Entities;
+using ParkFinder.Models;
 using ParkFinder.Helpers;
 
 namespace ParkFinder.Services
@@ -19,22 +19,18 @@ namespace ParkFinder.Services
 
     public class UserService : IUserService
     {
-        // users are hardcoded, store in a db with hashed passwords in a real application
-        private List<User> _users = new List<User>
-        {
-            new User { Id = 1, FirstName = "Test", LastName = "User", Username = "test", Password = "test" }
-        };
-
         private readonly AppSettings _appSettings;
+        private ParkFinderContext _db;
 
-        public UserService(IOptions<AppSettings> appSettings)
+        public UserService(IOptions<AppSettings> appSettings, ParkFinderContext db)
         {
             _appSettings = appSettings.Value;
+            _db = db;
         }
 
         public User Authenticate(string username, string password)
         {
-            var user = _users.SingleOrDefault(entry => entry.Username == username && entry.Password == password);
+            var user = _db.Users.SingleOrDefault(entry => entry.Username == username && entry.Password == password);
             if (user == null)
             {
                 return null;
@@ -46,7 +42,7 @@ namespace ParkFinder.Services
             {
                 Subject = new ClaimsIdentity(new Claim[]
                 {
-                    new Claim(ClaimTypes.Name, user.Id.ToString())
+                    new Claim(ClaimTypes.Name, user.UserId.ToString())
                 }),
                 Expires = DateTime.UtcNow.AddDays(7),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
@@ -61,7 +57,7 @@ namespace ParkFinder.Services
 
         public IEnumerable<User> GetAll()
         {
-            return _users.Select(x => {
+            return _db.Users.ToList().Select(x => {
                 x.Password = null;
                 return x;
             });
