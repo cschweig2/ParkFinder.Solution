@@ -9,7 +9,7 @@
 
 ### **Description**
 
-An API designed to list state and national ParkFinder across the United States.
+An API designed to list state and national parks across the United States.
 
 ### **Technologies Used**
 
