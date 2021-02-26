@@ -240,4 +240,4 @@ If you run into any issues, you can contact the creator at chelraebecker@gmail.c
 
 *This software is licensed under the MIT license.*
 
-Copyright (c) 2020 **Chelsea Becker**
+Copyright (c) 2021 **Chelsea Becker**
